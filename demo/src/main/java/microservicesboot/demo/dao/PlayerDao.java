@@ -9,5 +9,5 @@ import java.util.List;
 
 @RestResource(path="players", rel="players")
 public interface PlayerDao extends CrudRepository<Player, Long> {
-
+    Player findByName (String name);
 }

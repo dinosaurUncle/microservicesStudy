@@ -1,5 +1,6 @@
 package microservicesboot.demo;
 
+import microservicesboot.demo.dao.PlayerDao;
 import microservicesboot.demo.dao.TeamDao;
 import microservicesboot.demo.domain.Player;
 import microservicesboot.demo.domain.Team;
@@ -18,8 +19,16 @@ public class WhateverIWant {
     @Autowired
     TeamDao teamDao;
 
+    @Autowired
+    PlayerDao playerDao;
+
     @RequestMapping("/hi/{name}")
     public Team koreanSoccerTeam(@PathVariable String name) {
         return teamDao.findByName(name);
+    }
+
+    @RequestMapping("/player/{name}")
+    public Player koreanSoccerPlayer(@PathVariable String name) {
+        return playerDao.findByName(name);
     }
 }
